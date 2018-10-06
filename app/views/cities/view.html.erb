@@ -1,0 +1,18 @@
+<% if @cities == nil %>
+	<p>You must enter at least one city name! Go to /cities/new</p>
+<% else %>
+	<% if params[:city] %>
+		<% @cities.each do |c| %>
+			<% if c[:name].eql? params[:city] %>
+				<h1><%= c[:name] %></h1>
+				<p><%= c[:population] %></p><p><%= c[:landmark] %></p>
+			<% end %>
+		<% end %>
+	<% else %>
+		<% @cities.each do |c| %>
+			<h1><%= c.name %></h1>
+			<p><%= c.landmark %></p><p><%= c.population %></p>
+		<% end %>
+	<% end %>
+<% end %>
+
